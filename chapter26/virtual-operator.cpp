@@ -11,7 +11,7 @@ class Shape {
       height = b;
     }
 
-    int area() {
+    virtual int area() {
       cout << "Parent class area: " << endl;
       return 0;
     }
@@ -21,7 +21,7 @@ class Rectangle: public Shape {
   public:
     Rectangle(int a=0, int b=0):Shape(a, b) { }
     int area() {
-      cout << "Rectangle class area: " << endl;
+      cout << "Rectangle class area: ";
       return (width * height);
     }
 };
@@ -30,7 +30,7 @@ class Triangle: public Shape {
   public: 
     Triangle(int a=0, int b=0): Shape(a, b) { }
     int area() {
-      cout << "Triangle class area: " << endl;
+      cout << "Triangle class area: ";
         return (width * height / 2);
     }
 };
@@ -41,10 +41,12 @@ int main() {
   Triangle tri(10, 5);
 
   shape = &rec;
-  shape->area();
+  float area = shape->area();
+  cout << area << endl;
 
   shape = &tri;
-  shape->area();
+  area = shape->area();
+  cout << area << endl;
 
   return 0;
 }
